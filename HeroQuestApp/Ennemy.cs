@@ -1,4 +1,5 @@
 ﻿using Libraries;
+using Libraries.Enum;
 using MonsterEnum = Libraries.Enum.Monsters;
 
 namespace HeroQuestApp;

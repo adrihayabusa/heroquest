@@ -1,4 +1,4 @@
-﻿namespace Libraries;
+﻿namespace Libraries.Enum;
 
 public enum Weapons
 {

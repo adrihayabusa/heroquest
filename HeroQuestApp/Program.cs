@@ -68,7 +68,8 @@ if (playersAmount < 2 || playersAmount > 4) {
 
     WriteLine();
 
-    string json = File.ReadAllText("quest.json");
+    var path = Path.Combine(AppContext.BaseDirectory, "quest.json");
+    string json = File.ReadAllText(path);
     Quest quest = JsonConvert.DeserializeObject<Quest>(json) ??
         throw new Exception("The quest is empty. Check quest.json.");
 

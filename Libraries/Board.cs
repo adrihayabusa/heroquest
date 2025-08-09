@@ -64,7 +64,7 @@ public class Board
     }
 
     public void LoadTest2() {
-        string[] lines = File.ReadAllLines("board2.txt");
+        string[] lines = File.ReadAllLines(".txt");
 
         YMax = lines.Length;
         XMax = lines[YMax -1].Length;
@@ -90,7 +90,8 @@ public class Board
     }
 
     public void Load() {
-        string[] lines = File.ReadAllLines("board2.txt");
+        var path = Path.Combine(AppContext.BaseDirectory, "board2.txt");
+        string[] lines = File.ReadAllLines(path);
 
         YMax = lines.Length;
         XMax = lines[YMax -1].Length;
