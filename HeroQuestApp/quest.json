@@ -1,0 +1,48 @@
+{
+    "description": "This is the first Quest for HeroQuest in C#.\nJust a try to debug and see how the app is behaving.\nIn this quest, the heroes will start in a dungeon called The Cave, a lost place in Idaho.\nThey got drunk and ended up here. \nThis place contains a few weak monsters. Your objective is to destroy them all.",
+    "objectivesDescription": "KillAllMonsters",
+    "items": "TODO. Create a set of data for items.",
+    "traps": [
+        {
+            "id": 1,
+            "type": "FallingBlock",
+            "position": {"x": 10, "y": 6}
+        },
+        {
+            "id": 2,
+            "type": "FallingBlock",
+            "position": {"x": 8, "y": 6}
+        }
+    ],
+    "monsters": [
+        { "id": 1, "type": "Goblin", "position": {"x": 8, "y": 4} },
+        { "id": 2, "type": "Goblin", "position": {"x": 9, "y": 4} },
+        { "id": 3, "type": "Goblin", "position": {"x": 10, "y": 4} },
+        { "id": 4, "type": "Skeleton", "position": {"x": 5, "y": 8} }
+    ],
+    "doors": [
+        {
+            "directions": "LeftRight",
+            "position": {"x": 1, "y": 2}
+        },
+        {
+            "directions": "TopBottom",
+            "position": {"x": 3, "y": 11}
+        },
+        {
+            "directions": "LeftRight",
+            "position": {"x": 1, "y": 15}
+        },
+        {
+            "directions": "LeftRight",
+            "position": {"x": 1, "y": 20}
+        }
+    ],
+    "stairs" : {"x": 5, "y": 2},
+    "playersPositions" : [
+        {"x": 3, "y": 4},
+        {"x": 4, "y": 4},
+        {"x": 4, "y": 3},
+        {"x": 3, "y": 3}
+    ]
+}
