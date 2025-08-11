@@ -1,4 +1,5 @@
 ﻿using Libraries;
+using Libraries.Enum;
 
 namespace HeroQuestApp;
 
@@ -78,7 +79,7 @@ public class Quest
 
         foreach (Objectives objectiveDesc in ObjectivesDescriptions) {
             Objective objective = objectiveDesc switch {
-                Libraries.Objectives.KillAllMonsters => new KillAllMonstersObjective(board),
+                Libraries.Enum.Objectives.KillAllMonsters => new KillAllMonstersObjective(board),
                 _ => new(board)
             };
 

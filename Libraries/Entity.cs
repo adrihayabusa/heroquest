@@ -1,6 +1,4 @@
-﻿using Libraries;
-
-namespace Libraries.Shared;
+﻿namespace Libraries;
 
 public abstract class Entity
 {
