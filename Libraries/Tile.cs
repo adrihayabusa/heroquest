@@ -1,4 +1,6 @@
-﻿namespace Libraries;
+﻿using Libraries.Enum;
+
+namespace Libraries;
 
 public enum Walls
 {
