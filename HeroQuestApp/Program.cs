@@ -20,6 +20,7 @@ WriteLine();
 if (playersAmount < 2 || playersAmount > 4) {
     WriteLine("Wrong input.");
 } else {
+    List<Heroes> availableHeroes = [.. Enum.GetValues<Heroes>()];
     List<Player> players = [];
 
     for (int i = 1; i <= playersAmount; i++) {
@@ -31,39 +32,32 @@ if (playersAmount < 2 || playersAmount > 4) {
             _ => "TG"
         };
 
-        Array list = Enum.GetValues(typeof(Heroes));
-        string[] names = Enum.GetNames(typeof(Heroes));
-        string heroesList = string.Join(", ", names);
-
         WriteLine();
         Write($"{playerNumber} player's name: ");
         string playerName = ReadLine() ?? throw new Exception("Put a name!");
         WriteLine();
 
-        Write($"Choose a class ({heroesList} | 0 - 3): ");
-        string? classInput = ReadLine();
+        Heroes[] heroValues = Enum.GetValues<Heroes>();
+        Write($"Choose a class ({availableHeroes} | 0 - {availableHeroes.Count - 1}): ");
+        string? heroClassInput = ReadLine();
         WriteLine();
 
-        bool valid = uint.TryParse(classInput, out uint choice);
-        Heroes heroClass;
-        if (valid && choice <= 3) {
-            #pragma warning disable CS8605 // Unboxing a possibly null value.
-            heroClass = (Heroes)list.GetValue(choice);
-            #pragma warning restore CS8605 // Unboxing a possibly null value.
-            WriteLine($"{playerName} choose {heroClass}.");
-        } else {
-            throw new Exception("All Wrong.");
-        }
+        if (int.TryParse(heroClassInput, out int choice) && choice >= 0 && choice < availableHeroes.Count)
+        {
+            Heroes heroClass = availableHeroes[choice];
+            availableHeroes.RemoveAt(choice);
+            WriteLine($"{playerName} chose {heroClass}.");
 
-        Write("Hero's name: ");
-        string? heroName = ReadLine();
-        if (heroName == null || heroName == "") {
-            heroName = "Hero" + i.ToString();
-        }
+            Write("Hero's name: ");
+            string? heroName = ReadLine();
+            if (heroName == null || heroName == "") {
+                heroName = "Hero" + i.ToString();
+            }
 
-        Player player = new(playerName);
-        player.BuildHero(heroClass, heroName);
-        players.Add(player);
+            Player player = new(playerName);
+            player.BuildHero(heroClass, heroName);
+            players.Add(player);
+        }
     }
 
     WriteLine();
